@@ -1,0 +1,125 @@
+<div class="app flex-row chackout">
+  <div class="container">
+
+    <div class="col-md-8 offset-md-2 marginTop30px">
+      <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row justify-content-center bg-white login">
+          <div class="col">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-user"></i>
+              </span>
+              <input type="email" class="form-control" name="email" [(ngModel)]="user.email" placeholder="Email" required>
+            </div>
+          </div>
+          <div class="col">
+            <div class="input-group">
+              <span class="input-group-addon">
+                <i class="fa fa-lock"></i>
+              </span>
+              <input type="password" class="form-control" name="password" [(ngModel)]="user.password" placeholder="Password" required>
+            </div>
+          </div>
+          <div class="col">
+            <button type="submit" class="btn btn-primary btn-block">Login</button>
+          </div>
+
+        </div>
+      </form>
+    </div>
+    <div class="col-md-8 offset-md-2 marginTop30px">
+      <form #checkoutForm="ngForm">
+        <div class="row justify-content-center bg-white checkout-form">
+          <div class="col">
+            <h2 class="text-center">Checkout</h2>
+            <div class="input-group">
+              <input type="text" class="form-control" name="name" [(ngModel)]="checkout.name" (ngModelChange)="nameChange($event)" placeholder="Please enter company name..."
+                required>
+              <span class="input-group-btn">
+                <button class="btn btn-primary" (click)="nameChange()" type="button">Go!</button>
+              </span>
+            </div>
+            <sub class="text-secondary">*Discount offer might be available for you company.</sub>
+          </div>
+        </div>
+        <div class="row justify-content-center checkout-form">
+          <div class="col">
+            <ul class="list-group" *ngFor="let ad of adsData;let i=index">
+              <li class="list-group-item">
+                {{ad.name}} ({{ad.price | currency:'USD':true:'1.2-2'}})
+                <a class="add text-success pull-right" tooltip="Add to chart" placement="left" (click)="addToChart(ad)">
+                  <i class="fa fa-cart-plus" aria-hidden="true"></i>
+                </a>
+              </li>
+            </ul>
+
+          </div>
+        </div>
+        <div class="row justify-content-center checkout-form discount" *ngIf="avalibleDiscount.length">
+          <div class="col">
+            <h4>Discount Offers</h4>
+            <ul>
+              <li *ngFor="let discount of avalibleDiscount;let i=index">
+               <b class="text-capitalize">{{discount.ad}} Ad</b> 
+                <span *ngIf="discount.type == 'price'">: Price drops to <b>{{discount.discount_price | currency:'USD':true:'1.2-2'}}</b> per ad. </span> 
+                <span *ngIf="discount.type == 'for'">: Gets <b> {{discount.discount_for.get}} for {{discount.discount_for.for}} </b> </span> 
+                <span *ngIf="discount.type == 'min'">: Price drops to <b>{{discount.discount_price | currency:'USD':true:'1.2-2'}}</b> per ad on <b>{{discount.min_ad}} or more</b> are purchased. </span> 
+    
+              </li>
+            </ul>
+          </div>
+
+        </div>
+        <div class="row justify-content-center checkout-form" *ngIf="checkout.ads.length">
+          <div class="col">
+            <form #orderForm="ngForm">
+              <table class="table table-sm table-fixed">
+                <thead>
+                  <tr>
+                    <th colspan="4">Chart</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let ad of checkout.ads | groupBy: 'name'">
+                    <td class="text-capitalize">
+                      {{ad.key}}
+                    </td>
+                    <td>
+                        <a class="remove text-danger" (click)="removeAd(ad.key)">
+                            <i class="fa fa-minus" aria-hidden="true"></i>
+                          </a>
+                    </td>
+                    <td class="text-center">
+                        {{ad.value.length}}
+                    </td>
+                    <td class="text-right">
+                      <a class="add text-success" (click)="addAd(ad.key)">
+                        <i class="fa fa-plus" aria-hidden="true"></i>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+                <tfoot>
+
+                    <tr>
+                        <th id="total" colspan="2">Total :</th>
+                        <td></td>
+                        <td class="text-right">
+                            <b> {{checkout.total | currency:'USD':true:'1.2-2'}}</b>
+                        </td>
+                      </tr>
+                
+                </tfoot>
+              </table>
+            </form>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!--Toaster Message-->
+<toaster-container></toaster-container>
+<ng-loading-bar></ng-loading-bar>
+

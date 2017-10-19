@@ -1,0 +1,42 @@
+<div class="animated fadeIn padding10px">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Ads
+      </div>
+      <div class="card-block">
+        <form #adForm="ngForm">
+          <table class="table table-bordered table-hover table-sm">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Title</th>
+                <th>Price</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let ad of adsData;let i=index">
+                <td>{{i + 1}}</td>
+                <td>
+                  <input type="text" name="ad-name-{{ad.id}}" class="form-control" [(ngModel)]="ad.name" placeholder="Enter Ad title...">
+                </td>
+                <td>
+                  <input type="number" name="ad-price-{{ad.id}}" step=".01" class="form-control" [(ngModel)]="ad.price" placeholder="Enter Ad price...">
+                </td>
+                <td>
+                  <input type="button" value="Update" (click)="updateAd(ad)" class="btn btn-info btn-block btn-sm">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Toaster Message-->
+<toaster-container></toaster-container>
+<ng-loading-bar></ng-loading-bar>
+

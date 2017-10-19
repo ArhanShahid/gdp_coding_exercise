@@ -1,0 +1,43 @@
+<header class="app-header navbar">
+  <button class="navbar-toggler mobile-sidebar-toggler d-lg-none" type="button" appMobileSidebarToggler>&#9776;</button>
+  <a class="navbar-brand" [routerLink]="['/dashboard']"></a>
+  <ul class="nav navbar-nav mr-auto d-md-down-none">
+    <li class="nav-item">
+      <a class="nav-link navbar-toggler sidebar-toggler" href="#" appSidebarToggler>&#9776;</a>
+    </li>
+  </ul>
+</header>
+
+<div class="app-body">
+  <div class="sidebar">
+    <nav class="sidebar-nav">
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['/dashboard']">
+            <i class="fa fa-tachometer"></i>Dashboard</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['discounts']">
+            <i class="fa fa fa-envelope"></i>Discounts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" (click)="logout()">
+            <i class="fa fa-sign-out"></i>Logout</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <!-- Main content -->
+  <main class="main">
+
+    <div class="container-fluid">
+      <router-outlet></router-outlet>
+    </div>
+
+  </main>
+</div>
+
+<!--Toaster Message-->
+<toaster-container></toaster-container>
+<ng-loading-bar></ng-loading-bar>

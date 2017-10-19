@@ -1,0 +1,192 @@
+.callout {
+  position: relative;
+  padding: 0 10px;
+  margin: $spacer 0;
+  border: 0 solid $border-color;
+  border-left-width: .25rem;
+  font-size: 0.9em;
+  border-bottom: 1px solid $gray-lighter !important;
+  @if $enable-rounded {
+    border-radius: .25rem;
+  }
+
+  .chart-wrapper {
+    position: absolute;
+    top: 18px;
+    left: 45%;
+    float: right;
+    width: 100px;
+  }
+
+  small {
+    font-size: .9em;
+  }
+}
+.current-rides{
+  border-top: 1px solid $gray-lighter !important;
+  margin: 0;
+}
+.callout-heading {
+  border: 0 !important;
+
+  .callout-heading-btn {
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 14px;
+    .callout-heading-img-all {
+      height: 20px;
+      width: 40px;
+    }
+    .callout-heading-img-paxi, .callout-heading-img-pink, .callout-heading-img-bike {
+      height: 23px;
+      width: 23px;
+    }
+    &:hover {
+      transform: scale(1.2);
+      -webkit-transition: all 100ms;
+      transition: all 100ms;
+    }
+  }
+  .callout-heading-btn-active{
+    border-bottom: 2px solid  $brand-primary;
+    img {
+      transform: scale(1.2);
+      -webkit-transition: all 100ms;
+      transition: all 100ms;
+    }
+    &:hover {
+      transform: scale(1);
+      -webkit-transition: all 100ms;
+      transition: all 100ms;
+    }
+  }
+}
+.callout-bordered {
+  border: 1px solid $border-color;
+  border-left-width: .25rem;
+}
+
+.callout code {
+  border-radius: .25rem;
+}
+
+.callout h4 {
+  margin-top: 0;
+  margin-bottom: .25rem;
+}
+
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
+.callout + .callout {
+  margin-top: - .25rem;
+}
+
+.callout-default {
+  border-left-color: $text-muted;
+
+  h4 {
+    color: $text-muted;
+  }
+}
+
+.callout-primary {
+  border-left-color: $brand-primary;
+
+  h4 {
+    color: $brand-primary;
+  }
+}
+
+.callout-info {
+  border-left-color: $brand-info;
+
+  h4 {
+    color: $brand-info;
+  }
+}
+
+.callout-warning {
+  border-left-color: $brand-warning;
+
+  h4 {
+    color: $brand-warning;
+  }
+}
+
+.callout-danger {
+  border-left-color: $brand-danger;
+
+  h4 {
+    color: $brand-danger;
+  }
+}
+
+.callout-success {
+  border-left-color: $brand-success;
+
+  h4 {
+    color: $brand-success;
+  }
+}
+
+.callout-paxi-taxi {
+  border-left-color: $gray-dark;
+
+  &:hover {
+    background-color: $gray-lightest;
+  }
+
+}
+
+.callout-pink-taxi {
+  border-left-color: $brand-pink;
+  &:hover {
+    background-color: $gray-lightest;
+  }
+
+}
+
+.callout-bike-taxi {
+  border-left-color: $brand-primary;
+  &:hover {
+    background-color: $gray-lightest;
+  }
+}
+
+.aside-menu {
+  .callout-taxi-details {
+    font-size: 0.9em;
+    border: 0 solid $border-color;
+    border-left-width: .25rem;
+    padding: 5px 10px;
+    .callout-taxi-details-loading {
+      font-size: 0.9em;
+      margin-top: 10%;
+      text-align: center;
+      .table-bordered{
+        tr {
+          td{
+            padding: 6px;
+          }
+        }
+      }
+    }
+  }
+  .current-rides-details-box{
+    border-bottom: 1px solid $gray-lighter;
+  }
+  .callout-paxi-taxi-details {
+    border-left-color: $gray-dark;
+  }
+  .callout-pink-taxi-details {
+    border-left-color: $brand-pink;
+  }
+
+  .callout-bike-taxi-details {
+    border-left-color: $brand-primary;
+  }
+
+}
+

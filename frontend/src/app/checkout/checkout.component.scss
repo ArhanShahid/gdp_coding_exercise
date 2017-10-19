@@ -1,0 +1,23 @@
+.chackout {
+  .bg-white {
+    background: #ffffff;
+  }
+  .login {
+    padding: 15px 10px;
+  }
+  .checkout-form {
+    background: #ffffff;
+    padding: 15px 5px 15px 5px;
+    .fa{
+      cursor: pointer
+    }
+    .list-group {
+      font-size: 1.2em;
+      .fa-cart-plus {
+        font-size: 1.2em;
+        margin-right: 10px;
+      }
+    } 
+  }
+}
+

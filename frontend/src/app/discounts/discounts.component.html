@@ -1,0 +1,59 @@
+<div class="animated fadeIn padding10px">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header">
+        <i class="fa fa-align-justify"></i> Discounts
+      </div>
+      <div class="card-block">
+        <form #dicountForm="ngForm">
+          <table class="table table-bordered table-hover table-sm dicount-form">
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Customer</th>
+                <th>Ad</th>
+                <th>Offer</th>
+                <th>Update</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let discount of discountData | orderBy:'customer';let i=index">
+                <td>{{i + 1}}</td>
+                <td class="text-capitalize">
+                  {{discount.customer}}
+                </td>
+                <td class="text-capitalize">
+                  {{discount.ad}} Ad
+                </td>
+                <td>
+                  <span *ngIf="discount.type == 'price'">Price drops to
+
+                    <input type="number" name="discount_price-{{discount._id}}" step=".01" class="form-control" [(ngModel)]="discount.discount_price"
+                      placeholder="Price..."> per ad. </span>
+                  <span *ngIf="discount.type == 'for'">Gets
+                    <input type="number" name="discount_for-get-{{discount._id}}" step=".01" class="form-control" [(ngModel)]="discount.discount_for.get"
+                      placeholder="Quantity..."> for
+                    <input type="number" name="discount_for-for-{{discount._id}}" step=".01" class="form-control" [(ngModel)]="discount.discount_for.for"
+                      placeholder="Quantity..." />
+                  </span>
+                  <span *ngIf="discount.type == 'min'">Price drops to
+                    <input type="number" name="discount_price-min-{{discount._id}}" step=".01" class="form-control" [(ngModel)]="discount.discount_price"
+                      placeholder="Price..."> per ad on {{discount.min_ad}}
+                    <input type="number" name="discount_min_ad-{{discount._id}}" step=".01" class="form-control" [(ngModel)]="discount.min_ad"
+                      placeholder="Quantity..."> or more are purchased. </span>
+                </td>
+                <td>
+                  <input type="button" value="Update" (click)="discountUpdate(discount)" class="btn btn-info btn-block btn-sm">
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--Toaster Message-->
+<toaster-container></toaster-container>
+<ng-loading-bar></ng-loading-bar>

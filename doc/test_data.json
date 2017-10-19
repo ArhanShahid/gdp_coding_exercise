@@ -1,0 +1,165 @@
+{
+    
+        "admin": {
+            "email": "admin@admin.com",
+            "password": "123"
+    },
+        "ads": [
+        {
+            "id": "classic",
+            "name": "Classic Ad",
+            "price": 269.99
+        },
+        {
+            "id": "standout",
+            "name": "Standout Ad",
+            "price": 322.99
+        },
+        {
+            "id": "premium",
+            "name": "Premium Ad",
+            "price": 394.99
+        }
+    ],
+        "discounts": [
+        {
+            "customer": "unilever",
+            "ad": "classic",
+            "type": "for",
+            "min_ad": null,
+            "discount_price": null,
+            "discount_for": {
+                "get": 3,
+                "for": 2
+            }
+        },
+        {
+            "customer": "apple",
+            "ad": "standout",
+            "type": "price",
+            "min_ad": null,
+            "discount_price": 299.99,
+            "discount_for": null
+        },
+        {
+            "customer": "nike",
+            "ad": "premium",
+            "type": "min",
+            "min_ad": 4,
+            "discount_price": 379.99,
+            "discount_for": null
+        },
+        {
+            "customer": "foad",
+            "ad": "classic",
+            "type": "for",
+            "min_ad": null,
+            "discount_price": null,
+            "discount_for": {
+                "get": 5,
+                "for": 4
+            }
+        },
+        {
+            "customer": "foad",
+            "ad": "standout",
+            "type": "price",
+            "min_ad": null,
+            "discount_price": 309.99,
+            "discount_for": null
+        },
+        {
+            "customer": "foad",
+            "ad": "premium",
+            "type": "min",
+            "min_ad": 3,
+            "discount_price": 389.99,
+            "discount_for": null
+        }
+    ],
+    "checkout" :[{
+        "customer": "default",
+        "ads": ["classic", "standout", "premium"] // 0 => 987.97
+    },
+    {
+        "customer": "default",
+        "ads": ["classic", "classic", "classic"] // 1 => 809.97
+    },
+    {
+        "customer": "default",
+        "ads": ["standout", "standout", "standout"] // 2 => 968.97
+    },
+    {
+        "customer": "default",
+        "ads": ["premium", "premium", "premium"] // 3 => 1184.97
+    },
+    {
+        "customer": "apple",
+        "ads": ["classic", "classic", "premium", "premium"] // 4 => 1329.96
+    },
+    {
+        "customer": "apple",
+        "ads": ["standout", "standout", "standout", "premium"] // 5 => 1294.96
+    },
+    {
+        "customer": "apple",
+        "ads": ["classic", "standout", "standout", "standout", "premium"] // 6 => 1564.95
+    },
+    {
+        "customer": "unilever",
+        "ads": ["classic", "classic", "classic", "premium"] // 7 => 934.97
+    },
+    {
+        "customer": "unilever",
+        "ads": ["classic", "classic", "classic", "classic", "standout", "premium"] // 8 => 1527.95
+    },
+    {
+        "customer": "nike",
+        "ads": ["classic", "standout"] // 9 =>  592.98
+    },
+    {
+        "customer": "nike",
+        "ads": ["premium", "premium", "premium"] // 10 => 1184.97
+    },
+    {
+        "customer": "nike",
+        "ads": ["premium", "premium", "premium", "premium"] // 11 => 1519.96
+    },
+    {
+        "customer": "nike",
+        "ads": ["premium", "premium", "premium", "premium", "premium"] // 12 => 1899.95
+    },
+    {
+        "customer": "foad",
+        "ads": ["premium", "premium", "premium", "premium"] // 13 => 1559.96
+    },
+    {
+        "customer": "foad",
+        "ads": ["standout", "standout", "standout"] // 14 => 929.97
+    },
+    {
+        "customer": "foad",
+        "ads": ["premium","premium", "premium", "premium"] // 15 => 1559.96
+    },
+    {
+        "customer": "foad",
+        "ads": ["standout", "standout", "standout", "premium", "premium"] // 16 => 2099.94
+    },
+    {
+        "customer": "foad",
+        "ads": ["standout", "standout", "standout", "premium", "premium", "premium"] // 17 => 2099.94
+    },
+    {
+        "customer": "foad",
+        "ads": ["classic", "classic", "classic", "classic", "classic", "classic", "classic", "classic", "classic", "classic"] // 18 => 2159.92
+    },
+    {
+        "customer": "foad",
+        "ads": ["classic", "classic", "classic" , "classic", "classic", "classic"] // 19 => 1349.95
+    },
+    {
+        "customer": "foad",
+        "ads": ["standout", "standout", "standout", "classic", "classic", "classic" , "classic", "classic", "premium", "premium", "premium", "premium"] // 20 => 3569.89
+    }
+    ]
+}
